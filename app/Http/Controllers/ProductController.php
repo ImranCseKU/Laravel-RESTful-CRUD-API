@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\APIHelpers;
+use App\Http\Requests\ProductValidationRequest;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class ProductController extends Controller
         return response()->json($response);
     }
 
-    public function store(Request $request)
+    public function store(ProductValidationRequest $request)
     {
         $product = new Product();
         $product->name = $request->name;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\PostAPI;
+use App\Http\Requests\PostValidationRequest;
 use App\Post;
 use Illuminate\Http\Request;
 class PostController extends Controller
@@ -15,7 +16,7 @@ class PostController extends Controller
         return response()->json($response);
     }
 
-    public function store(Request $request)
+    public function store(PostValidationRequest $request)
     {
         $post = new Post();
         $post->title = $request->title;
