@@ -18,4 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('products', 'ProductController');
-Route::resource('posts', 'PostController');
+// Route::resource('posts', 'PostController');
+
+// Route::prefix('v1')->group(function () {
+//     Route::resource('posts', 'PostController');
+// });
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::resource('posts', 'PostController');
+});

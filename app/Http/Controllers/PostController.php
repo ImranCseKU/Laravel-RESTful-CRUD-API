@@ -11,7 +11,6 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        // return $posts;
         $response = PostAPI::FormatResponse(false, 200, '', $posts);
         return response()->json($response);
     }
@@ -37,7 +36,6 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        // return $post;
         $response = PostAPI::FormatResponse(false, 200, '', $post);
         return response()->json($response);
     }
@@ -59,7 +57,6 @@ class PostController extends Controller
             $response = PostAPI::FormatResponse(false, 400, 'Post update failed', '');
             return response()->json($response);
         }
-
     }
 
     public function destroy($id)

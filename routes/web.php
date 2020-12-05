@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 Route::resource('products', 'ProductController');
 Route::resource('posts', 'PostController');
+
+Route::get('post/delete/{id}', 'PostController@destroy');
